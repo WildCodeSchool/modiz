@@ -3,12 +3,17 @@ require_relative 'error_message'
 module Modiz
   class InvalidQuest < Exception
     class Standard < StandardError
-      def initialize *param
-        @param = param
+      def initialize *wrong_line
+        @wrong_line = wrong_line
       end
 
       def message
-        InvalidQuest.load_messages(self.to_s) + @param.to_s
+        message = InvalidQuest.load_messages(self.to_s)
+        message + concat_wrong_lines
+      end
+
+      def concat_wrong_lines
+        @wrong_line.join(', ')
       end
     end
 
@@ -27,8 +32,8 @@ module Modiz
     class NoChallengeCriteriaMarkup < Standard; end
     class NoChallengeDescription    < Standard; end
     class NoChallengeCriteria       < Standard; end
-    class NoStepTitle               < Standard ; def initialize param ; super ; end ; end
-    class InvalidLink               < Standard ; def initialize param ; super ; end ; end
-    class DoubleLineMissing         < Standard ; def initialize param ; super ; end ; end
+    class NoStepTitle               < Standard; end
+    class InvalidLink               < Standard; end
+    class DoubleLineMissing         < Standard; end
   end
 end

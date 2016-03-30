@@ -5,7 +5,7 @@ module Modiz
   class ParserTest < Minitest::Test
     def test_invalid_step_delimiter
       err = assert_raises InvalidQuest::NoStepDelimiter do ; Parser.run('') ; end
-      assert_match /Je ne reconnais pas de ligne qui contient ## Etapes/, err.message
+      assert_equal "Je ne reconnais pas de ligne qui contient ## Etapes, réfère toi au modèle NEW.md dans le dossier Draft", err.message
     end
 
     def test_invalid_challenge_delimiter
