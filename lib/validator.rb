@@ -7,7 +7,7 @@ module Modiz
       @steps_lines = inputs[:steps_lines]
       @challenge_lines = inputs[:challenge_lines]
       validate_links
-      validate_double_lines_jump
+
       validate_file_structure
       validate_file_content
       validate_no_step_title
@@ -24,14 +24,6 @@ module Modiz
         valid_format?(url) ? nil : url
       end.compact
       raise InvalidQuest::InvalidLink.new invalid_urls.join(', ') if invalid_urls.any?
-    end
-
-    def validate_double_lines_jump
-      title_parts = @quest_file.split "\n##"
-      title_parts.pop
-      title_parts.each do |title_part|
-        raise InvalidQuest::DoubleLineMissing.new(wrong_lines_index(title_part)) if title_part[-1] != "\n"
-      end
     end
 
     def validate_file_structure

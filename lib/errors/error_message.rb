@@ -12,7 +12,7 @@ module Modiz
       NoChallengeCriteriaMarkup: "Ta quête doit contenir le titre '### Critères de validation'.",
       NoChallengeDescription: "Le challenge mérite d'être décrit, non ?",
       NoChallengeCriteria: "Ta quête doit contenir une liste de critères.",
-      InvalidLink: "Les lien(s) suivant n'est(ne sont) pas valide(s) : ",
-      DoubleLineMissing: "Tu n'as pas sauté de lignes après chaque titre ou liste. Notamment sur la(les) ligne(s) :" }
+      InvalidLink: "Les lien(s) suivant n'est(ne sont) pas valide(s) : "
+    }
   end
 end
