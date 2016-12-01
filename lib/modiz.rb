@@ -1,10 +1,10 @@
 require 'modiz/version'
-require 'builder'
-require 'quest_builder'
-require 'steps_builder'
-require 'challenge_builder'
-require 'errors/invalid_quest'
-require 'validator'
+require 'modiz/builder'
+require 'modiz/quest_builder'
+require 'modiz/steps_builder'
+require 'modiz/challenge_builder'
+require 'modiz/errors/invalid_quest'
+require 'modiz/validator'
 
 module Modiz
   class Parser

@@ -1,4 +1,4 @@
-require 'resources_builder'
+require 'modiz/resources_builder'
 
 module Modiz
   class StepBuilder < Builder
