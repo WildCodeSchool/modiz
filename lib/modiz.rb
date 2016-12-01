@@ -9,15 +9,15 @@ require 'modiz/validator'
 module Modiz
   class Parser
     def initialize quest_file
-      @quest_file = quest_file
-      validate_good_markdown
+      @file_content = quest_file
+      validate_markdown_quest_format
     end
 
     def self.run quest_file
-      new(quest_file).hash
+      new(quest_file).to_quest
     end
 
-    def hash
+    def to_quest
       {     quest_details: QuestBuilder.run(quest_lines),
                     steps: steps_wrapper,
         challenge_details: ChallengeBuilder.run(challenge_lines) }
@@ -25,12 +25,14 @@ module Modiz
 
     private
 
-    def validate_good_markdown
-      validation_arguments = {file: @quest_file,
+    def validate_markdown_quest_format
+      validation_arguments = {
+        file: @file_content,
         steps_index: steps_index,
         challenge_index: challenge_index,
         steps_lines: steps_lines,
-        challenge_lines: challenge_lines }
+        challenge_lines: challenge_lines
+      }
       Validator.run validation_arguments
     end
 
@@ -62,11 +64,11 @@ module Modiz
     end
 
     def lines_of section
-      @quest_file.lines[section]
+      @file_content.lines[section]
     end
 
     def find_index section
-      @quest_file.lines.index {|s| s.include?(section)}
+      @file_content.lines.index {|s| s.include?(section)}
     end
   end
 
