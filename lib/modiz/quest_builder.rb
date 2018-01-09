@@ -1,5 +1,5 @@
 module Modiz
-  class QuestBuilder < Builder
+  class QuestBuilder < ModizBuilder
     attr_reader :to_hash
 
     def initialize(quest_lines)

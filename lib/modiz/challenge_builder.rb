@@ -1,5 +1,5 @@
 module Modiz
-  class ChallengeBuilder < Builder
+  class ChallengeBuilder < ModizBuilder
     def initialize(quest_lines)
       @lines = quest_lines
       validations

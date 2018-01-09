@@ -1,7 +1,7 @@
 require 'modiz/resources_builder'
 
 module Modiz
-  class StepBuilder < Builder
+  class StepBuilder < ModizBuilder
     attr_reader :to_hash, :step
 
     def initialize step

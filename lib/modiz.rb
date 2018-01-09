@@ -1,5 +1,5 @@
 require 'modiz/version'
-require 'modiz/builder'
+require 'modiz/modiz_builder'
 require 'modiz/quest_builder'
 require 'modiz/steps_builder'
 require 'modiz/challenge_builder'
