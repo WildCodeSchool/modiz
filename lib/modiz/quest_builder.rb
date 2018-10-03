@@ -28,7 +28,9 @@ module Modiz
     end
 
     def goal_index
-      @lines.index {|s| s.include?("## Objectifs")}
+      goal_index = @lines.index {|s| s.include?("## Objectifs")}
+      goal_index ||= @lines.index {|s| s.include?("## Goals")}
+      goal_index
     end
 
     def validations

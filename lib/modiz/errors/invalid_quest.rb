@@ -21,6 +21,7 @@ module Modiz
       Modiz.error_messages[klass.split('::').last.to_sym]
     end
 
+    class NoDescriptionFound        < Standard; end
     class NoStepDelimiter           < Standard; end
     class NoChallengeDelimiter      < Standard; end
     class NoStepsContent            < Standard; end

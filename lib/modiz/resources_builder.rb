@@ -19,6 +19,7 @@ module Modiz
 
     def description resource
       description_index = resource.index(")")
+      raise InvalidQuest::NoDescriptionFound if description_index.nil?
       desc = resource[description_index + 1..-1].strip
     end
 

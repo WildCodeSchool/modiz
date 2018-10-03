@@ -56,7 +56,9 @@ module Modiz
     end
 
     def steps_index
-      find_index '## Etapes'
+      steps_index = find_index '## Etapes'
+      steps_index ||= find_index '## Steps'
+      steps_index
     end
 
     def challenge_index

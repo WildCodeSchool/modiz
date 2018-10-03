@@ -1,6 +1,7 @@
 module Modiz
   def self.error_messages
-    { NoStepDelimiter: "Je ne reconnais pas de ligne qui contient ## Etapes, réfère toi au modèle NEW.md dans le dossier Draft",
+    { NoDescriptionFound: "Je ne trouve pas la description dans %{resource}, la description est tout ce qui suit le caractère ')'",
+      NoStepDelimiter: "Je ne reconnais pas de ligne qui contient ## Etapes, réfère toi au modèle NEW.md dans le dossier Draft",
       NoChallengeDelimiter: "Je ne reconnais pas de ligne qui contient ## Challenge, réfère toi au modèle NEW.md dans le dossier Draft",
       NoStepsContent: "Je ne reconnais pas de lignes qui contient au moins une étape, avec un titre et une description.",
       NoChallengeContent: "Je ne vois pas de lignes qui décrivent le challenge.",

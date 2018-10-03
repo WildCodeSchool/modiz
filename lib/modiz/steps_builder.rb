@@ -17,7 +17,11 @@ module Modiz
     private
 
     def split_on_resource
-      step.split("#### Ressources")
+      if step.include?("#### Ressources")
+        step.split("#### Ressources")
+      else
+        step.split("#### Resources")
+      end
     end
 
     def resources
