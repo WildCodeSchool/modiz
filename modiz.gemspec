@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{A simple gem to parse Markdown files into Ruby hash.}
   spec.description   = %q{A simple gem to parse Markdown files into Ruby hash. Teachers can write their courses with the One True Document Format -- Markdown. Modiz takes the MD course/quest and translates into Ruby objects Odyssey. }
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/WildCodeSchool/modiz"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
