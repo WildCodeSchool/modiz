@@ -1,3 +1,4 @@
+require 'logger'
 require 'modiz/version'
 require 'modiz/modiz_builder'
 require 'modiz/quest_builder'
@@ -7,6 +8,27 @@ require 'modiz/errors/invalid_quest'
 require 'modiz/validator'
 
 module Modiz
+  class << self
+    attr_writer :logger
+
+    def logger
+      @logger ||= Logger.new($stdout).tap do |log|
+        log.progname = self.name
+      end
+    end
+
+    def listify string
+      string.join.split(%r{\n\s*\*})
+            .map(&:strip)
+            .reject(&:empty?)
+    end
+
+    def title_hashtags size
+      hashtags = '#' * size
+      "\n#{hashtags} "
+    end
+  end
+
   class Parser
     def initialize quest_file
       @file_content = quest_file
@@ -18,6 +40,8 @@ module Modiz
     end
 
     def to_quest
+      #Modiz.logger.debug "---------------"
+      #Modiz.logger.debug steps_wrapper
       {     quest_details: QuestBuilder.run(quest_lines),
                     steps: steps_wrapper,
         challenge_details: ChallengeBuilder.run(challenge_lines) }
@@ -37,9 +61,11 @@ module Modiz
     end
 
     def steps_wrapper
+      #Modiz.logger.debug "-----"
       steps = steps_lines.join.strip.split(Modiz.title_hashtags(3)).reject(&:empty?)
+      #Modiz.logger.debug steps
       steps.map do |step|
-        StepBuilder.run step
+        StepsBuilder.run step
       end
     end
 
@@ -72,16 +98,5 @@ module Modiz
     def find_index section
       @file_content.lines.index {|s| s.include?(section)}
     end
-  end
-
-  def self.listify string
-    string.join.split(%r{\n\s*\*})
-          .map(&:strip)
-          .reject(&:empty?)
-  end
-
-  def self.title_hashtags size
-    hashtags = '#' * size
-    "\n#{hashtags} "
   end
 end

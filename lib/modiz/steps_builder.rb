@@ -1,7 +1,7 @@
 require 'modiz/resources_builder'
 
 module Modiz
-  class StepBuilder < ModizBuilder
+  class StepsBuilder < ModizBuilder
     attr_reader :to_hash, :step
 
     def initialize step
@@ -33,7 +33,7 @@ module Modiz
     end
 
     def title
-      step.split(double_line).first[/\w(.*)$/]
+      @title ||= step.split(double_line).first[/\w(.*)$/]
     end
 
     def description
@@ -43,7 +43,11 @@ module Modiz
     end
 
     def double_line
-      "\n\n"
+      if step.include?("\n\n")
+        @double_line ||= "\n\n"
+      else
+        @double_line ||= "\r\n"
+      end
     end
   end
 end
