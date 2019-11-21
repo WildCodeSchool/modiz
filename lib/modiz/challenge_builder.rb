@@ -40,7 +40,9 @@ module Modiz
     end
 
     def criterias_index
-      @lines.find_index { |line| /\A### Crit/.match(line) }
+      criterias_index = @lines.find_index { |line| /\A### Crit/.match(line) }
+      criterias_index ||= @lines.find_index { |line| /\A### Validation (c|C)riteria/.match(line) }
+      criterias_index
     end
 
     def validations
