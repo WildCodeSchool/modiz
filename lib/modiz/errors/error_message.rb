@@ -10,7 +10,7 @@ module Modiz
       NoQuestDescription: "Je ne reconnais pas le description de quêtes. Donnez un peu de contexte tout de même !",
       NoStepTitle: "Je n'ai pas réussi à trouver le titre de l'étape. Les titres d'étapes commencent par '### ' et se trouve après la section ##Etape, ligne :",
       NoChallengeTitle: "Je ne reconnais aucun titre pour le challenge.",
-      NoChallengeCriteriaMarkup: "Ta quête doit contenir le titre '### Critères de validation'.",
+      NoChallengeCriteriaMarkup: "Ta quête doit contenir le titre '### Critères de validation' ou '### Validation criteria'.",
       NoChallengeDescription: "Le challenge mérite d'être décrit, non ?",
       NoChallengeCriteria: "Ta quête doit contenir une liste de critères.",
       InvalidLink: "Les lien(s) suivant n'est(ne sont) pas valide(s) : "

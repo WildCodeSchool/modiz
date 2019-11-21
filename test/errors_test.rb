@@ -11,7 +11,7 @@ module Modiz
     def test_invalid_challenge_delimiter
       quest_file = "\n\n## Etapes"
       err = assert_raises InvalidQuest::NoChallengeDelimiter do ; Parser.run(quest_file) ; end
-      assert_match /Je ne reconnais pas de ligne qui contient ## Challenge/, err.message
+      assert_match(/Je ne reconnais pas de ligne qui contient ## Challenge/, err.message)
     end
 
     def test_no_step_content
@@ -28,13 +28,13 @@ module Modiz
     def test_invalid_link
       quest_file = "\n\n## Etapes\nfoo\n \n## Challenge\n\n[url](wrong_link)"
       err = assert_raises InvalidQuest::InvalidLink do ; Parser.run(quest_file) ; end
-      assert_match /lien/, err.message
+      assert_match(/lien/, err.message)
     end
 
     def test_several_invalid_links
       quest_file = "\n\n## Etapes\nfoo\n\n## Challenge\n\n[url](wrong_link)[url](second_wrong_link)"
       err = assert_raises InvalidQuest::InvalidLink do ; Parser.run(quest_file) ; end
-      assert_match /wrong_link, second_wrong_link/, err.message
+      assert_match(/wrong_link, second_wrong_link/, err.message)
     end
 
     def test_no_step_title

@@ -56,5 +56,5 @@ module Modiz
       assert_equal 4, quest_hash[:challenge_details][:criteria].count
       assert_nil quest_hash[:steps][3][:resources]
     end
- end
+  end
 end
