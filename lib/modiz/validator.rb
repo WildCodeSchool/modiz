@@ -28,12 +28,12 @@ module Modiz
 
     def validate_file_structure
       raise InvalidQuest::NoStepDelimiter unless @steps_index
-      raise InvalidQuest::NoChallengeDelimiter unless @challenge_index
+      # raise InvalidQuest::NoChallengeDelimiter unless @challenge_index
     end
 
     def validate_file_content
       raise InvalidQuest::NoStepsContent if @steps_lines.join.strip.empty?
-      raise InvalidQuest::NoChallengeContent if @challenge_lines.join.strip == "## Challenge"
+      # raise InvalidQuest::NoChallengeContent if @challenge_lines.join.strip == "## Challenge"
     end
 
     def validate_no_step_title

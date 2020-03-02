@@ -44,7 +44,7 @@ module Modiz
       #Modiz.logger.debug steps_wrapper
       {     quest_details: QuestBuilder.run(quest_lines),
                     steps: steps_wrapper,
-        challenge_details: ChallengeBuilder.run(challenge_lines) }
+        challenge_details: challenge_index >= 0 ? ChallengeBuilder.run(challenge_lines) : nil }
     end
 
     private
@@ -74,11 +74,11 @@ module Modiz
     end
 
     def steps_lines
-      lines_of steps_index + 1...challenge_index if steps_index && challenge_index
+      lines_of steps_index + 1...challenge_index if steps_index
     end
 
     def challenge_lines
-      lines_of challenge_index..-1 if challenge_index
+      lines_of challenge_index..-1 if challenge_index >= 0
     end
 
     def steps_index
@@ -88,7 +88,7 @@ module Modiz
     end
 
     def challenge_index
-      find_index '## Challenge'
+      (find_index '## Challenge') || -1
     end
 
     def lines_of section
